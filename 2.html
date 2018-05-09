@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.right{
+				display: inline-block;
+				background-color: red;
+				width: 400px;
+				height: 200px;
+			}
+			.left{
+				display: inline-block;
+				
+			}
+			.left div{
+				margin: 20px 0;
+				width: 30px;
+				height: 20px;
+				border: 4px solid black;
+				background-color: red;
+			}
+			.left .red{
+				background-color: red;
+			}
+			.left .blue{
+				background-color: blue;
+			}
+			.left .green{
+				background-color: green;
+			}
+			.left .yellow{
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="left">
+				<div id="red" class="red">
+					
+				</div>
+				<div id="blue" class="blue">
+					
+				</div>
+				<div id="green" class="green">
+					
+				</div>
+				<div id="yellow" class="yellow">
+					
+				</div>
+			</div>
+			<div id="right" class="right">
+				
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			//点击选中
+			$(".left div").click(function(e){
+				var color = $(this).css("background-color");
+				$("#right").css("background-color",color);
+			})
+		})
+	</script>
+</html>

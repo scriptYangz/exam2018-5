@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.right {
+				display: inline-block;
+				background-color: red;
+				width: 400px;
+				height: 200px;
+			}
+			
+			.left {
+				display: inline-block;
+			}
+			
+			.left div {
+				margin: 20px 0;
+				width: 30px;
+				height: 20px;
+				border: 4px solid black;
+				background-color: red;
+			}
+			
+			.left .red {
+				background-color: red;
+			}
+			
+			.left .blue {
+				background-color: blue;
+			}
+			
+			.left .green {
+				background-color: green;
+			}
+			
+			.left .yellow {
+				background-color: yellow;
+			}
+			input{
+				display: block;
+				margin: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="left">
+				<div id="red" class="red">
+
+				</div>
+				<div id="blue" class="blue">
+
+				</div>
+				<div id="green" class="green">
+
+				</div>
+				<div id="yellow" class="yellow">
+
+				</div>
+			</div>
+			<div id="right" class="right">
+
+			</div>
+			<input v-on:input="c1" id="range1" type="range" min="0" max="255" value="70" v-model="r1"/>
+			<input @change="c2" id="range2" type="range" min="0" max="255" value="70" v-model="r2"/>
+			<input @change="c3" id="range3" type="range" min="0" max="255" value="70" v-model="r3"/>
+		</div>
+	</body>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			
+			
+				var vue = new Vue({
+					el:".box",
+					data:{
+						r1:255,
+						r2:0,
+						r3:0
+					},
+					methods:{
+						c1(){
+							$("#right").css("background-color", "rgb("+this.r1+","+this.r2+","+this.r3+")");
+						},
+						c2(){
+							$("#right").css("background-color", "rgb("+this.r1+","+this.r2+","+this.r3+")");
+						},
+						c3(){
+							$("#right").css("background-color", "rgb("+this.r1+","+this.r2+","+this.r3+")");
+						}
+					}
+				})
+				
+				//点击选中
+			$(".left div").click(function(e) {
+				var color = $(this).css("background-color");
+				$("#right").css("background-color", color);
+			})
+			
+		})
+	</script>
+
+</html>
